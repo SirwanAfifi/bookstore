@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 
 namespace Core1RtmEmptyTest
@@ -14,15 +16,40 @@ namespace Core1RtmEmptyTest
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDirectoryBrowser();
         }
 
         public void Configure(IApplicationBuilder app)
         {
-            app.UseWelcomePage();
+            app.UseDefaultFiles();
 
-            app.Run(async (context) =>
+            app.UseStaticFiles(); // For the wwwroot folder
+
+            // For the files outside of the wwwroot
+            app.UseStaticFiles(new StaticFileOptions
             {
-                await context.Response.WriteAsync("Hello Sirwan!");
+                FileProvider = new PhysicalFileProvider(root: Path.Combine(Directory.GetCurrentDirectory(), @"MyStaticFiles")),
+                RequestPath = new PathString("/StaticFiles")
+            });
+
+            // For DirectoryBrowser
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(root: Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\images")),
+                RequestPath = new PathString("/MyImages")
+            });
+
+            app.UseDirectoryBrowser(new DirectoryBrowserOptions
+            {
+                FileProvider = new PhysicalFileProvider(root: Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\images")),
+                RequestPath = new PathString("/MyImages")
+            });
+
+            //app.UseWelcomePage();
+
+            app.Run(async context =>
+            {
+                await context.Response.WriteAsync("Hello DNT!");
             });
         }
     }
