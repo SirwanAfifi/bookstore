@@ -19,9 +19,9 @@ namespace Core1RtmEmptyTest
             services.AddDirectoryBrowser();
         }
 
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseDefaultFiles();
+            /* app.UseDefaultFiles();
 
             app.UseStaticFiles(); // For the wwwroot folder
 
@@ -45,10 +45,22 @@ namespace Core1RtmEmptyTest
                 RequestPath = new PathString("/MyImages")
             });
 
-            //app.UseWelcomePage();
+            //app.UseWelcomePage(); 
+            */
+
+            if (env.IsDevelopment())
+            {
+                app.UseStatusCodePages();
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler(errorHandlingPath: "/MyControllerName/SomeActionMethodName");
+            }
 
             app.Run(async context =>
             {
+                throw new Exception("Generic Error");
                 await context.Response.WriteAsync("Hello DNT!");
             });
         }
