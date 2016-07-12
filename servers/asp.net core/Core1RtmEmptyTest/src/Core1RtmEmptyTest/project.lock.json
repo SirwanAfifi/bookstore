@@ -957,6 +957,44 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "structuremap/4.2.0.402": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.10",
+          "System.Collections.Concurrent": "4.0.10",
+          "System.Diagnostics.Debug": "4.0.10",
+          "System.Globalization": "4.0.10",
+          "System.IO": "4.0.10",
+          "System.Linq": "4.0.0",
+          "System.Linq.Expressions": "4.0.10",
+          "System.Reflection": "4.0.10",
+          "System.Reflection.Extensions": "4.0.0",
+          "System.Reflection.TypeExtensions": "4.0.0",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
+          "System.Threading": "4.0.10",
+          "System.Threading.Tasks": "4.0.10"
+        },
+        "compile": {
+          "lib/dotnet/StructureMap.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/StructureMap.dll": {}
+        }
+      },
+      "StructureMap.Dnx/0.5.1-rc2-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc2-final",
+          "structuremap": "4.2.0.402"
+        },
+        "compile": {
+          "lib/netstandard1.0/StructureMap.Dnx.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/StructureMap.Dnx.dll": {}
+        }
+      },
       "System.AppContext/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -1348,7 +1386,11 @@
           "lib/portable-net45+win8+wpa81/_._": {}
         },
         "runtimeTargets": {
-          "runtimes/win/lib/netstandard1.3/_._": {
+          "runtimes/unix/lib/netstandard1.3/System.IO.Compression.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netstandard1.3/System.IO.Compression.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -1371,7 +1413,7 @@
           "ref/netstandard1.3/System.IO.Compression.ZipFile.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.3/_._": {}
+          "lib/netstandard1.3/System.IO.Compression.ZipFile.dll": {}
         }
       },
       "System.IO.FileSystem/4.0.1": {
@@ -1606,7 +1648,11 @@
           "lib/portable-net45+win8+wpa81/_._": {}
         },
         "runtimeTargets": {
-          "runtimes/win/lib/netstandard1.3/_._": {
+          "runtimes/unix/lib/netstandard1.6/System.Net.Http.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netstandard1.3/System.Net.Http.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -2454,7 +2500,7 @@
           "ref/netstandard1.6/System.Text.RegularExpressions.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.6/_._": {}
+          "lib/netstandard1.6/System.Text.RegularExpressions.dll": {}
         }
       },
       "System.Threading/4.0.11": {
@@ -2620,7 +2666,7 @@
           "ref/netstandard1.3/System.Xml.ReaderWriter.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.3/_._": {}
+          "lib/netstandard1.3/System.Xml.ReaderWriter.dll": {}
         }
       },
       "System.Xml.XDocument/4.0.11": {
@@ -2643,7 +2689,7 @@
           "ref/netstandard1.3/System.Xml.XDocument.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.3/_._": {}
+          "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
       "System.Xml.XmlDocument/4.0.1": {
@@ -2705,6 +2751,19 @@
         },
         "runtime": {
           "lib/netstandard1.3/_._": {}
+        }
+      },
+      "Core1RtmEmptyTest.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v1.6",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0"
+        },
+        "compile": {
+          "netstandard1.6/Core1RtmEmptyTest.Services.dll": {}
+        },
+        "runtime": {
+          "netstandard1.6/Core1RtmEmptyTest.Services.dll": {}
         }
       }
     }
@@ -3514,6 +3573,41 @@
         "lib/netstandard1.0/_._",
         "runtime.native.System.Security.Cryptography.4.0.0.nupkg.sha512",
         "runtime.native.System.Security.Cryptography.nuspec"
+      ]
+    },
+    "structuremap/4.2.0.402": {
+      "sha512": "KVANHSAE77vwEE9K0iroD/JyEUX/Xoxby6ME+i+n9UhRyO3UjTm88/sbA8oI/iM0xZOuqb36RGeOwRhVJjwIAg==",
+      "type": "package",
+      "path": "structuremap/4.2.0.402",
+      "files": [
+        "lib/dotnet/StructureMap.dll",
+        "lib/dotnet/StructureMap.pdb",
+        "lib/net40/StructureMap.Net4.dll",
+        "lib/net40/StructureMap.Net4.pdb",
+        "lib/net40/StructureMap.dll",
+        "lib/net40/StructureMap.pdb",
+        "lib/net40/StructureMap.xml",
+        "lib/portable-net40+wp8+win8/StructureMap.dll",
+        "lib/portable-net40+wp8+win8/StructureMap.pdb",
+        "lib/portable-net40+wp8+win8/StructureMap.xml",
+        "lib/portable-net45+wp81+win81/StructureMap.dll",
+        "lib/portable-net45+wp81+win81/StructureMap.pdb",
+        "lib/portable-net45+wp81+win81/StructureMap.xml",
+        "structuremap.4.2.0.402.nupkg.sha512",
+        "structuremap.nuspec"
+      ]
+    },
+    "StructureMap.Dnx/0.5.1-rc2-final": {
+      "sha512": "3Y5Jsh2YtcxnIyE0f39sabR+Ukp5ru3Q9uc5XCJnCOUMvJD8CWNteRlyKD3t1aeE2bQGaW1eq6cXi9it9V9Y6w==",
+      "type": "package",
+      "path": "StructureMap.Dnx/0.5.1-rc2-final",
+      "files": [
+        "StructureMap.Dnx.0.5.1-rc2-final.nupkg.sha512",
+        "StructureMap.Dnx.nuspec",
+        "lib/netcore50/StructureMap.Dnx.dll",
+        "lib/netcore50/StructureMap.Dnx.xml",
+        "lib/netstandard1.0/StructureMap.Dnx.dll",
+        "lib/netstandard1.0/StructureMap.Dnx.xml"
       ]
     },
     "System.AppContext/4.1.0": {
@@ -7787,16 +7881,23 @@
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
       ]
+    },
+    "Core1RtmEmptyTest.Services/1.0.0": {
+      "type": "project",
+      "path": "../Core1RtmEmptyTest.Services/project.json",
+      "msbuildProject": "../Core1RtmEmptyTest.Services/Core1RtmEmptyTest.Services.xproj"
     }
   },
   "projectFileDependencyGroups": {
     "": [
+      "Core1RtmEmptyTest.Services >= 1.0.0-*",
       "Microsoft.AspNetCore.Diagnostics >= 1.0.0",
       "Microsoft.AspNetCore.Server.IISIntegration >= 1.0.0",
       "Microsoft.AspNetCore.Server.Kestrel >= 1.0.0",
       "Microsoft.AspNetCore.StaticFiles >= 1.0.0",
       "Microsoft.Extensions.Logging.Console >= 1.0.0",
-      "Microsoft.NETCore.App >= 1.0.0"
+      "Microsoft.NETCore.App >= 1.0.0",
+      "StructureMap.Dnx >= 0.5.1-rc2-final"
     ],
     ".NETCoreApp,Version=v1.0": []
   },

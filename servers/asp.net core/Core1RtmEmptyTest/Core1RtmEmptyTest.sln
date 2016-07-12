@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Core1RtmEmptyTest", "src\Core1RtmEmptyTest\Core1RtmEmptyTest.xproj", "{EAE7E69B-69DD-4C74-B0AA-346519B4C457}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Core1RtmEmptyTest.Services", "src\Core1RtmEmptyTest.Services\Core1RtmEmptyTest.Services.xproj", "{9DD5B63F-5A90-4B93-916D-EFF4284E6EB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,11 +24,16 @@ Global
 		{EAE7E69B-69DD-4C74-B0AA-346519B4C457}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAE7E69B-69DD-4C74-B0AA-346519B4C457}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAE7E69B-69DD-4C74-B0AA-346519B4C457}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DD5B63F-5A90-4B93-916D-EFF4284E6EB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DD5B63F-5A90-4B93-916D-EFF4284E6EB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DD5B63F-5A90-4B93-916D-EFF4284E6EB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DD5B63F-5A90-4B93-916D-EFF4284E6EB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{EAE7E69B-69DD-4C74-B0AA-346519B4C457} = {BC736778-BC17-4D91-A7CE-29F093ACFF02}
+		{9DD5B63F-5A90-4B93-916D-EFF4284E6EB6} = {BC736778-BC17-4D91-A7CE-29F093ACFF02}
 	EndGlobalSection
 EndGlobal

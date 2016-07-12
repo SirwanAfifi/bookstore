@@ -1,25 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
-using Microsoft.Extensions.Logging;
+using Core1RtmEmptyTest.Services;
+using StructureMap;
 
 namespace Core1RtmEmptyTest
 {
     public class Startup
     {
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddDirectoryBrowser();
+
+            var container = new Container();
+            container.Configure(config =>
+            {
+                config.Scan(_ =>
+                {
+                    _.AssemblyContainingType<IMessagesService>();
+                    _.WithDefaultConventions();
+                });
+
+                config.Populate(services);
+            });
+
+            container.Populate(services);
+
+            return container.GetInstance<IServiceProvider>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, 
+                              IHostingEnvironment env,
+                              IMessagesService messagesService)
         {
             /* app.UseDefaultFiles();
 
@@ -60,8 +74,8 @@ namespace Core1RtmEmptyTest
 
             app.Run(async context =>
             {
-                throw new Exception("Generic Error");
-                await context.Response.WriteAsync("Hello DNT!");
+                var siteName = messagesService.GetSiteName();
+                await context.Response.WriteAsync($"Hello {siteName}");
             });
         }
     }
