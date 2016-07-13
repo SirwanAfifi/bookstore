@@ -2,6 +2,18 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'my-app',
-    template: '<h1>Hello I am Sirwan</h1>'
+    templateUrl: 'app/app.component.html' 
 })
-export class AppComponent { }
+export class AppComponent { 
+    
+    title: string = "Customer App";
+    name = "Sirwan";
+    color = "blue";
+
+    ChangeSuitColor() {
+        if (this.color === "red")
+            this.color = "blue";
+        else
+            this.color = "red";
+    }
+}
