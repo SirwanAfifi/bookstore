@@ -9,42 +9,47 @@ var Bot = require('node-telegram-bot-api'),
 
 console.log('bot server started...');
 
+
+
 bot.onText(/^\/sir1 (.+)$/, (msg, match) => {
 
     var movie_title = match[1].replace(/\s/g, '+');
 
-    /*var chatId = msg.chat.id;
-    // From file
-    var photo = __dirname + '/public/movie.png';
-    bot.sendPhoto(chatId, photo, { caption: "Hi man, let's search a movie by its Title" });*/
-
     movieService.getMovieByTitle(movie_title, (err, result) => {
+
+        if (err) {
+            bot.sendMessage(msg.chat.id, 'بوخشه مشکله پیش هاتگه!').then(() => {
+                // reply sent!
+            });
+        }
+
         var res = result;
 
-        console.log(result);
+        var genre = res.Genre != undefined ? res.Genre.split(',') : '-';
+        var rated = res.Rated != undefined ? helper.getMovieRated(res.Rated) : '-';
+        var released = res.Released != undefined ? moment(res.Released).format('jYYYY/jMM/jDD') : '-';
+        var runtime = res.Runtime != undefined ? res.Runtime.substring(0, res.Runtime.length - 4) + "دقیقه " : '-';
 
         var template = `
 عنوان: ${res.Title}
 سال:  ${res.Year}
-رده‌ی سنی: ${helper.getMovieRated(res.Rated)}
-تاریخ انتشار: ${moment(res.Released).format('jYYYY/jMM/jDD')}
-مدت زمان: ${res.Runtime.substring(0, res.Runtime.length - 4) + "دقیقه "}
-ژانر:   ${res.Genre}
+رده‌ی سنی: ${rated}
+تاریخ انتشار: ${released}
+مدت زمان: ${runtime}
+ژانر:   ${genre}
 کارگردان: ${res.Director}
 خلاصه:     ${res.Plot}
         `;
-        //bot.sendPhoto(msg.chat.id, photo, {caption: result.Title });
 
-        bot.sendMessage(msg.chat.id, template).then(() => {
-            // reply sent!
-        });
+        if (res.Title != undefined) {
+            bot.sendMessage(msg.chat.id, template).then(() => {
+                // reply sent!
+            });
+        } else {
+            bot.sendMessage(msg.chat.id, 'ئه‌و ناوه اشتباه‌س عزیز - خوا مالت‌‌آوا کات').then(() => {
+                // reply sent!
+            });
+        }
 
-        var request = require('request');
-        request.get(res.Poster, function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-                bot.sendPhoto(msg.chat.id, response, { caption: res.Title });
-            }
-        });
-        
     });
 });
