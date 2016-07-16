@@ -13,7 +13,8 @@
     "StructureMap.Dnx": "0.5.1-rc2-final",
     "Microsoft.Extensions.Configuration.Json": "1.0.0",
     "Core1RtmEmptyTest.ViewModels": "1.0.0-*",
-    "Microsoft.Extensions.Configuration.Binder": "1.0.0"
+    "Microsoft.Extensions.Configuration.Binder": "1.0.0",
+    "Microsoft.AspNetCore.Mvc": "1.0.0"
   },
 
   "tools": {

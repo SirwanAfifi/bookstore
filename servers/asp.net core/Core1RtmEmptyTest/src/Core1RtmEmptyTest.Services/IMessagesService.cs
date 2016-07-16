@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 
 namespace Core1RtmEmptyTest.Services
 {
-    public interface IMessagesService
+    /*public interface IMessagesService
     {
         string GetSiteName();
     }
@@ -26,5 +26,5 @@ namespace Core1RtmEmptyTest.Services
             var server = _settings.Value.Server;
             return $"DNT {key1} - {server}";
         }
-    }
+    }*/
 }
