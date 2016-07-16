@@ -32,6 +32,7 @@ bot.onText(/^\/sir1 (.+)$/, (msg, match) => {
 
         var template = `
 عنوان: ${res.Title}
+امتیاز: ${res.imdbRating}
 سال:  ${res.Year}
 رده‌ی سنی: ${rated}
 تاریخ انتشار: ${released}
@@ -39,6 +40,7 @@ bot.onText(/^\/sir1 (.+)$/, (msg, match) => {
 ژانر:   ${genre}
 کارگردان: ${res.Director}
 خلاصه:     ${res.Plot}
+لینک: http://www.imdb.com/title/${res.imdbID}
         `;
 
         if (res.Title != undefined) {
