@@ -11,7 +11,7 @@ console.log('bot server started...');
 
 
 
-bot.onText(/^\/sir1 (.+)$/, (msg, match) => {
+bot.onText(/^\/movie (.+)$/, (msg, match) => {
 
     var movie_title = match[1].replace(/\s/g, '+');
 
@@ -25,10 +25,11 @@ bot.onText(/^\/sir1 (.+)$/, (msg, match) => {
 
         var res = result;
 
-        var genre = res.Genre != undefined ? res.Genre.split(',') : '-';
-        var rated = res.Rated != undefined ? helper.getMovieRated(res.Rated) : '-';
-        var released = res.Released != undefined ? moment(res.Released).format('jYYYY/jMM/jDD') : '-';
-        var runtime = res.Runtime != undefined ? res.Runtime.substring(0, res.Runtime.length - 4) + "دقیقه " : '-';
+        var title = res.Title != undefined && res.Title != 'N/A' ? res.Title : 'ثبت نشده';
+        var genre = res.Genre != undefined && res.Genre != 'N/A' ? res.Genre.split(',') : 'ثبت نشده';
+        var rated = res.Rated != undefined && res.Rated != 'N/A' ? helper.getMovieRated(res.Rated) : 'ثبت نشده';
+        var released = res.Released != undefined && res.Released != 'N/A' ? moment(res.Released).format('jYYYY/jMM/jDD') : 'ثبت نشده';
+        var runtime = res.Runtime != undefined && res.Runtime != 'N/A' ? res.Runtime.substring(0, res.Runtime.length - 4) + "دقیقه " : 'ثبت نشده';
 
         var template = `
 عنوان: ${res.Title}
@@ -54,4 +55,12 @@ bot.onText(/^\/sir1 (.+)$/, (msg, match) => {
         }
 
     });
+});
+
+
+bot.onText(/^\/book (.+)$/, (msg, match) => {
+
+    var book_title = match[1].replace(/\s/g, '+');
+
+    
 });

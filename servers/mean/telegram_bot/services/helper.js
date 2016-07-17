@@ -1,6 +1,6 @@
-(function (helper) {
+(helper => {
 
-    helper.getMovieRated = function (rated) {
+    helper.getMovieRated = rated => {
         var str = "";
         switch (rated) {
             case "R":
