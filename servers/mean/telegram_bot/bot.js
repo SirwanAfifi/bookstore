@@ -71,6 +71,9 @@ bot.on('inline_query', function (query) {
 
     var movie_title = query.query.replace(/ /g,"+");
 
+    if (movie_title === "") 
+        results = [];
+
     console.log(movie_title);
 
     movieService.getMovieByTitle(movie_title, (err, result) => {
@@ -95,14 +98,15 @@ bot.on('inline_query', function (query) {
 خلاصه:     ${res.Plot}
 لینک: http://www.imdb.com/title/${res.imdbID}
         `;
-
-        if (res.Title != undefined) {
+        console.log(result);
+        if (res.Title != undefined && res.Poster != "N/A") {
             var number = Math.floor(Math.random() * 64) + 1;
+            console.log(result);
             results.push({
                 type: "photo",
                 id: number.toString(),
-                photo_file_id: res.Poster.toString(),
-                thumb_url: res.Poster.toString(),
+                photo_url: res.Poster,
+                thumb_url: res.Poster,
                 title: res.Title,
                 description: "",
                 caption: res.Title,
