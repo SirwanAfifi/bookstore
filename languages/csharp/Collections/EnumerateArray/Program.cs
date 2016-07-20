@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace EnumerateArray
@@ -7,7 +8,7 @@ namespace EnumerateArray
     {
         static void Main(string[] args)
         {
-            string[] daysOfWeek = {
+            var daysOfWeek = new List<string> {
                                         "Monday",
                                         "Tuesday",
                                         "Wednesday",
@@ -16,17 +17,10 @@ namespace EnumerateArray
                                         "Saturday",
                                         "Sunday"
                                     };
-            // this is best done using for, not foreach
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < daysOfWeek.Length; i++)
+            foreach (string day in daysOfWeek)
             {
-                sb.Append(daysOfWeek[i]);
-                if (i < daysOfWeek.Length - 2)
-                    sb.Append(", ");
-                else if (i == daysOfWeek.Length - 2)
-                    sb.Append(" and ");
+                Console.WriteLine(day);
             }
-            Console.WriteLine(sb.ToString());
 
             Console.ReadLine();
 
