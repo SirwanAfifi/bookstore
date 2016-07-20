@@ -19,9 +19,18 @@ namespace Count
                                     };
             ICollection<string> collection = 
                 (ICollection<string>) daysOfWeek;
-            Console.WriteLine("Count() = " + collection.Count());
-            Console.WriteLine("Count = " + daysOfWeek.Length);
-            Console.WriteLine("Length = " + daysOfWeek.Length);
+
+            (collection as string[])[5] = "SlaveDay";
+            if (!collection.IsReadOnly)
+                collection.Add("SlaveDay");
+            else
+                Console.WriteLine("Collection is read-only");
+
+
+            foreach (string day in collection)
+            {
+                Console.WriteLine(day);
+            }
             Console.ReadLine();
         }
     }
