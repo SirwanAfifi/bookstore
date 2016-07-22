@@ -15,20 +15,10 @@ namespace AddToList
                 "Bill Clinton",
                 "George W Bush"
             };
-            Console.WriteLine("Before:");
-            Console.WriteLine("Count = " + presidents.Count);
-            Console.WriteLine("Capacity = " + presidents.Capacity + "\r\n");
             presidents.Add("Barack Obama");
-            presidents.Add("Bill Gates");
-            presidents.Add("Steven Spielberg");
-            presidents.Add("Aaron Skonnard");
 
-            //presidents.RemoveAt(6);
-            presidents.Remove("Bill Gates");
+            string firstElem = presidents[0];
 
-            Console.WriteLine("After:");
-            Console.WriteLine("Count = " + presidents.Count);
-            Console.WriteLine("Capacity = " + presidents.Capacity + "\r\n");
             foreach (string president in presidents)
                 Console.WriteLine(president);
 
