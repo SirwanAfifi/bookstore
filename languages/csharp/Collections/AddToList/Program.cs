@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace AddToList
 {
@@ -19,10 +20,19 @@ namespace AddToList
 
             string firstElem = presidents[0];
 
+            var copy = new ReadOnlyCollection<string>(presidents);
+
+            BadCode(copy);
+
             foreach (string president in presidents)
                 Console.WriteLine(president);
 
             Console.ReadLine();
+        }
+
+        static void BadCode(IList<string> lst)
+        {
+            lst.RemoveAt(2);
         }
     }
 }
