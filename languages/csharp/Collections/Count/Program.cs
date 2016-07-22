@@ -17,6 +17,8 @@ namespace Count
                                         "Saturday",
                                         "Sunday"
                                     };
+
+
             ICollection<string> collection = 
                 (ICollection<string>) daysOfWeek;
 
