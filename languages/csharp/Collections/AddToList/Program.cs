@@ -22,6 +22,9 @@ namespace AddToList
             presidents.Add("Bill Gates");
             presidents.Add("Steven Spielberg");
             presidents.Add("Aaron Skonnard");
+
+            presidents.RemoveAt(6);
+
             Console.WriteLine("After:");
             Console.WriteLine("Count = " + presidents.Count);
             Console.WriteLine("Capacity = " + presidents.Capacity + "\r\n");
