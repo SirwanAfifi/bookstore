@@ -15,24 +15,46 @@ bot.on('inline_query', function (query) {
     var book_title = query.query.replace(/\s/g, '+');
 
     console.log(book_title);
-    
-    if (book_title === "") 
+
+    if (book_title === "")
         results = [];
 
     console.log(book_title);
 
-    movieService.getBookByTitle(book_title, (err, result) => {
+    if (book_title != undefined) {
+        movieService.getBookByTitle(book_title, (err, result) => {
 
-        var res = result;
-        var image = res[0].best_book;
-        var template = `
-عنوان: ""
+            var res = result;
+
+            console.log(res);
+
+            if (res != undefined) {
+                res.forEach(function (item) {
+                    var number = Math.floor(Math.random() * 64) + 1;
+                    var template = `
+عنوان: ${item.best_book.title}
+نویسنده: ${item.best_book.author.name}
+امتیاز:  ${item.ratings_count}
         `;
+                    console.log(item);
+                    results.push({
+                        type: "photo",
+                        id: number.toString(),
+                        photo_url: item.best_book.small_image_url.toString(),
+                        thumb_url: item.best_book.small_image_url.toString(),
+                        title: item.best_book.title,
+                        description: item.best_book.title,
+                        caption: item.best_book.title,
+                        input_message_content: {
+                            message_text: template
+                        }
+                    });
+                    bot.answerInlineQuery(query.id, results);
+                }, this);
+            }
 
-        console.log(image);
-
-        var number = Math.floor(Math.random() * 64) + 1;
-            
+            /*var number = Math.floor(Math.random() * 64) + 1;
+    
             results.push({
                 type: "photo",
                 id: number.toString(),
@@ -40,13 +62,14 @@ bot.on('inline_query', function (query) {
                 thumb_url: image.toString(),
                 title: "",
                 description: "",
-                caption:"",
+                caption: "",
                 input_message_content: {
                     message_text: template
                 }
             });
-            bot.answerInlineQuery(query.id, results);
-    });
+            bot.answerInlineQuery(query.id, results);*/
+        });
+    }
 
 
 });

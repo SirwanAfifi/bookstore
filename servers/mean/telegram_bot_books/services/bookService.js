@@ -2,7 +2,7 @@
 
     var http   = require('http'),
         xml2js = require('xml2js')
-        parser = xml2js.Parser({ explicitArray: false });
+        parser = xml2js.Parser({ explicitArray : false });
     
     goodReadsService.getBookByTitle = (title, next) => {
         
@@ -20,7 +20,8 @@
 
             response.on('end', () => {
                 parser.parseString(str, (err, result) => {
-                    next(null, result.GoodreadsResponse.search.results.work);
+                    var res = result.GoodreadsResponse.search.results.work;
+                    next(null, res);
                 });
             });
         };
