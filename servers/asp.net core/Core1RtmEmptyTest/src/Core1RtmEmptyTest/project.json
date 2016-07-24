@@ -15,7 +15,8 @@
     "Core1RtmEmptyTest.ViewModels": "1.0.0-*",
     "Microsoft.Extensions.Configuration.Binder": "1.0.0",
     "Microsoft.AspNetCore.Mvc": "1.0.0",
-    "Microsoft.AspNetCore.SpaServices": "1.0.0-beta-000007"
+    "Microsoft.AspNetCore.SpaServices": "1.0.0-beta-000007",
+    "Microsoft.Extensions.FileProviders.Embedded": "1.0.0"
   },
 
   "tools": {
@@ -33,7 +34,8 @@
 
   "buildOptions": {
     "emitEntryPoint": true,
-    "preserveCompilationContext": true
+    "preserveCompilationContext": true,
+    "embed": "Features/**/*.cshtml"
   },
 
   "runtimeOptions": {
@@ -45,6 +47,9 @@
   "publishOptions": {
     "include": [
       "wwwroot",
+      "web.config",
+      "Features",
+      "appsettings.json",
       "web.config"
     ]
   },
