@@ -14,7 +14,7 @@ namespace PrimeMinistersDictionary
                 { "TB", new PrimeMinister("Tony Blair", 1997) }
             };
 
-            foreach (KeyValuePair<string, PrimeMinister> pm in primeMinisters)
+            foreach (var pm in primeMinisters.Values)
                 Console.WriteLine(pm);
 
 
