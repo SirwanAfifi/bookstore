@@ -14,11 +14,11 @@ namespace PrimeMinistersDictionary
                 { "TB", new PrimeMinister("Tony Blair", 1997) }
             };
 
-            foreach (var pm in primeMinisters)
-                Console.WriteLine(pm.Key + ",       " + pm.Value);
-
-
-
+            PrimeMinister pm;
+            bool found = primeMinisters.TryGetValue("DC", out pm);
+            if (found)
+                Console.WriteLine("value is: " + pm.ToString() + "\r\n");
+            Console.WriteLine("value was not in the dictionary");
 
 
             Console.ReadLine();
