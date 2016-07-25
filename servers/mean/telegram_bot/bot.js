@@ -30,6 +30,10 @@ bot.onText(/^\/movie (.+)$/, (msg, match) => {
         var rated = res.Rated != undefined && res.Rated != 'N/A' ? helper.getMovieRated(res.Rated) : 'ثبت نشده';
         var released = res.Released != undefined && res.Released != 'N/A' ? moment(res.Released).format('jYYYY/jMM/jDD') : 'ثبت نشده';
         var runtime = res.Runtime != undefined && res.Runtime != 'N/A' ? res.Runtime.substring(0, res.Runtime.length - 4) + "دقیقه " : 'ثبت نشده';
+        var actors = res.Actors != undefined && res.Actors != 'N/A' ? res.Actors : 'ثبت نشده';
+        var lang = res.Language != undefined && res.Language != 'N/A' ? res.Language : 'ثبت نشده';
+        var country = res.Country != undefined && res.Country != 'N/A' ? res.Country : 'ثبت نشده';
+        var awards = res.Awards != undefined && res.Awards != 'N/A' ? res.Awards : 'ثبت نشده';
 
         var template = `
 عنوان: ${res.Title}
@@ -40,6 +44,7 @@ bot.onText(/^\/movie (.+)$/, (msg, match) => {
 مدت زمان: ${runtime}
 ژانر:   ${genre}
 کارگردان: ${res.Director}
+بازیگران: ${actors}
 خلاصه:     ${res.Plot}
 لینک: http://www.imdb.com/title/${res.imdbID}
         `;
@@ -85,6 +90,10 @@ bot.on('inline_query', function (query) {
         var rated = res.Rated != undefined && res.Rated != 'N/A' ? helper.getMovieRated(res.Rated) : 'ثبت نشده';
         var released = res.Released != undefined && res.Released != 'N/A' ? moment(res.Released).format('jYYYY/jMM/jDD') : 'ثبت نشده';
         var runtime = res.Runtime != undefined && res.Runtime != 'N/A' ? res.Runtime.substring(0, res.Runtime.length - 4) + "دقیقه " : 'ثبت نشده';
+        var actors = res.Actors != undefined && res.Actors != 'N/A' ? res.Actors : 'ثبت نشده';
+        var lang = res.Language != undefined && res.Language != 'N/A' ? res.Language : 'ثبت نشده';
+        var country = res.Country != undefined && res.Country != 'N/A' ? res.Country : 'ثبت نشده';
+        var awards = res.Awards != undefined && res.Awards != 'N/A' ? res.Awards : 'ثبت نشده';
 
         var template = `
 عنوان: ${res.Title}
@@ -95,6 +104,7 @@ bot.on('inline_query', function (query) {
 مدت زمان: ${runtime}
 ژانر:   ${genre}
 کارگردان: ${res.Director}
+بازیگران: ${actors}
 خلاصه:     ${res.Plot}
 لینک: http://www.imdb.com/title/${res.imdbID}
         `;
