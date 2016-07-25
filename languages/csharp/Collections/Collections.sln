@@ -51,6 +51,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Queue", "Queue", "{1AB8110B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queues", "Queues\Queues.csproj", "{9D05251A-7923-4C43-BAF1-76F182062909}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dictionaries", "Dictionaries", "{4461E83C-BFF2-4B67-AF04-B56A97B157AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimeMinistersDictionary", "PrimeMinistersDictionary\PrimeMinistersDictionary.csproj", "{20C76F22-855A-4E6B-9D0E-71F08479476F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -137,6 +141,10 @@ Global
 		{9D05251A-7923-4C43-BAF1-76F182062909}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D05251A-7923-4C43-BAF1-76F182062909}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D05251A-7923-4C43-BAF1-76F182062909}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20C76F22-855A-4E6B-9D0E-71F08479476F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20C76F22-855A-4E6B-9D0E-71F08479476F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20C76F22-855A-4E6B-9D0E-71F08479476F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20C76F22-855A-4E6B-9D0E-71F08479476F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -162,5 +170,6 @@ Global
 		{F64B83CF-9326-4FF5-9C4C-EB2C49F8B3F4} = {5137ACE6-31D5-4F91-B17C-30BA0DA7F5AB}
 		{44D4066A-27BC-4B48-AB4E-BF1DA5B7D2DA} = {9353F97E-0809-4D18-AC03-451939639D52}
 		{9D05251A-7923-4C43-BAF1-76F182062909} = {1AB8110B-29FB-4B6A-8530-6DD74F3CFFE3}
+		{20C76F22-855A-4E6B-9D0E-71F08479476F} = {4461E83C-BFF2-4B67-AF04-B56A97B157AB}
 	EndGlobalSection
 EndGlobal
