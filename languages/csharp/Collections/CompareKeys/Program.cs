@@ -21,4 +21,17 @@ namespace CompareKeys
             Console.ReadLine();
         }
     }
+
+    public class UncasedStringEqualityComparer : IEqualityComparer<string>
+    {
+        public bool Equals(string x, string y)
+        {
+            return x.ToUpper() == y.ToUpper();
+        }
+
+        public int GetHashCode(string obj)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
