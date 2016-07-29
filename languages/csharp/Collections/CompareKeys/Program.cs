@@ -8,7 +8,7 @@ namespace CompareKeys
         static void Main(string[] args)
         {
             var primeMinisters = new Dictionary<string, PrimeMinister>
-            (StringComparer.InvariantCultureIgnoreCase)
+            (new UncasedStringEqualityComparer())
             {
                 { "JC", new PrimeMinister("James Callaghan", 1974) },
                 { "MT", new PrimeMinister("Margaret Thatcher", 1979) },
@@ -31,7 +31,7 @@ namespace CompareKeys
 
         public int GetHashCode(string obj)
         {
-            throw new NotImplementedException();
+            return obj.ToUpper().GetHashCode();
         }
     }
 }
