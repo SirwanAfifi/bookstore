@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SortedListWithComparer
+namespace KeyedCollectionDemo
 {
     class Program
     {
         static void Main(string[] args)
         {
             var primeMinisters = new SortedDictionary<string, PrimeMinister>
-            (new UncasedStringComparer())
             {
                 { "JC", new PrimeMinister("James Callaghan", 1974) },
                 { "MT", new PrimeMinister("Margaret Thatcher", 1979) },
@@ -17,18 +16,9 @@ namespace SortedListWithComparer
             primeMinisters.Add("JM", new PrimeMinister("John Major",
                 1990));
 
-            Console.WriteLine("tony is " + primeMinisters["tb"]);
+            Console.WriteLine("Tony is " + primeMinisters["TB"]);
 
             Console.ReadLine();
-        }
-    }
-
-    public class UncasedStringComparer : IComparer<string>
-    {
-        public int Compare(string x, string y)
-        {
-            return string.Compare(x, y,
-                StringComparison.InvariantCultureIgnoreCase);
         }
     }
 }
