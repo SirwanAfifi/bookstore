@@ -8,7 +8,7 @@ namespace SortedListWithComparer
         static void Main(string[] args)
         {
             var primeMinisters = new SortedList<string, PrimeMinister>
-            (new UncasedStringEqualityComparer())
+            (new UncasedStringComparer())
             {
                 { "JC", new PrimeMinister("James Callaghan", 1974) },
                 { "MT", new PrimeMinister("Margaret Thatcher", 1979) },
@@ -23,16 +23,12 @@ namespace SortedListWithComparer
         }
     }
 
-    public class UncasedStringEqualityComparer : IEqualityComparer<string>
+    public class UncasedStringComparer : IComparer<string>
     {
-        public bool Equals(string x, string y)
+        public int Compare(string x, string y)
         {
-            return x.ToUpper() == y.ToUpper();
-        }
-
-        public int GetHashCode(string obj)
-        {
-            return obj.ToUpper().GetHashCode();
+            return string.Compare(x, y,
+                StringComparison.InvariantCultureIgnoreCase);
         }
     }
 }
