@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace KeyedCollectionDemo
 {
@@ -7,18 +8,27 @@ namespace KeyedCollectionDemo
     {
         static void Main(string[] args)
         {
-            var primeMinisters = new SortedDictionary<string, PrimeMinister>
+            var primeMinisters = new PrimeMinistersByYearDictionary
             {
-                { "JC", new PrimeMinister("James Callaghan", 1974) },
-                { "MT", new PrimeMinister("Margaret Thatcher", 1979) },
-                { "TB", new PrimeMinister("Tony Blair", 1997) }
+                new PrimeMinister("James Callaghan", 1974),
+                new PrimeMinister("Margaret Thatcher", 1979),
+                new PrimeMinister("Tony Blair", 1997)
             };
-            primeMinisters.Add("JM", new PrimeMinister("John Major",
+            primeMinisters.Add(new PrimeMinister("John Major",
                 1990));
 
-            Console.WriteLine("Tony is " + primeMinisters["TB"]);
+            Console.WriteLine("Tony is " + primeMinisters[1997]);
 
             Console.ReadLine();
+        }
+    }
+
+    class PrimeMinistersByYearDictionary :
+        KeyedCollection<int, PrimeMinister>
+    {
+        protected override int GetKeyForItem(PrimeMinister item)
+        {
+            return item.YearElected;
         }
     }
 }
