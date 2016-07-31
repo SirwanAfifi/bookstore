@@ -14,7 +14,7 @@ namespace Intersect
             string[] citiesInUk =
             { "Sheffield", "Ripon", "Truro", "Manchester" };
 
-            bigCities.SymmetricExceptWith(citiesInUk);
+            bigCities.ExceptWith(citiesInUk);
             foreach (string city in bigCities)
                 Console.WriteLine(city);
 
