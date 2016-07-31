@@ -7,7 +7,7 @@ namespace HashSetComparer
     {
         static void Main(string[] args)
         {
-            var bigCities = new HashSet<string>(StringComparer.CurrentCultureIgnoreCase)
+            var bigCities = new HashSet<string>(new UncasedStringEqualityComparer())
             { "New York", "Manchester", "Sheffield", "Paris" };
 
             bigCities.Add("SHEFFIELD");
@@ -17,6 +17,19 @@ namespace HashSetComparer
                 Console.WriteLine(city);
 
             Console.ReadLine();
+        }
+    }
+
+    public class UncasedStringEqualityComparer : IEqualityComparer<string>
+    {
+        public bool Equals(string x, string y)
+        {
+            return x.ToUpper() == y.ToUpper();
+        }
+
+        public int GetHashCode(string obj)
+        {
+            return obj.ToUpper().GetHashCode();
         }
     }
 }
