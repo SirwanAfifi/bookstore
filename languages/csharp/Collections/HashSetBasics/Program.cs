@@ -9,8 +9,12 @@ namespace HashSetBasics
         {
             var bigCities = new HashSet<string>
             { "New York", "Manchester", "Sheffield", "Paris" };
-            bigCities.Add("Sheffield");
-            bigCities.Add("Beijing");
+
+            bool addedSheffield = bigCities.Add("Sheffield");
+            bool addedBeijing = bigCities.Add("Beijing");
+            Console.WriteLine("Added Sheffield? " + addedSheffield);
+            Console.WriteLine("Added Beijing? " + addedBeijing);
+            Console.WriteLine();
 
             foreach (string city in bigCities)
                 Console.WriteLine(city);
