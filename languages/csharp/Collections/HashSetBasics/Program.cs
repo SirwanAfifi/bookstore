@@ -7,13 +7,10 @@ namespace HashSetBasics
     {
         static void Main(string[] args)
         {
-            var bigCities = new List<string>
+            var bigCities = new HashSet<string>
             { "New York", "Manchester", "Sheffield", "Paris" };
-
-            if (!bigCities.Contains("Shefield"))
-                bigCities.Add("Shefield");
-            if (!bigCities.Contains("Beijing"))
-                bigCities.Add("Beijing");
+            bigCities.Add("Sheffield");
+            bigCities.Add("Beijing");
 
             foreach (string city in bigCities)
                 Console.WriteLine(city);
