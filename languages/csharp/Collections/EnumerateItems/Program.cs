@@ -17,7 +17,7 @@ namespace EnumerateItems
                             "Sunday"
                         };
 
-            DisplayItems(daysOfWeek);
+            DisplayItems("Hello World!");
 
             Console.ReadLine();
         }
