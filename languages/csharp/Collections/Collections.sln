@@ -77,6 +77,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetEquals", "SetEquals\SetE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetComparisons", "SetComparisons\SetComparisons.csproj", "{98C01306-A18E-44F6-B21E-FBD10EA73B08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortedSetDemo", "SortedSetDemo\SortedSetDemo.csproj", "{89773136-6B56-443B-A6ED-1CB024FB345A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -207,6 +209,10 @@ Global
 		{98C01306-A18E-44F6-B21E-FBD10EA73B08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98C01306-A18E-44F6-B21E-FBD10EA73B08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98C01306-A18E-44F6-B21E-FBD10EA73B08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89773136-6B56-443B-A6ED-1CB024FB345A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89773136-6B56-443B-A6ED-1CB024FB345A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89773136-6B56-443B-A6ED-1CB024FB345A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89773136-6B56-443B-A6ED-1CB024FB345A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -243,5 +249,6 @@ Global
 		{6FCD56B5-C6A0-461B-B364-38FE53E0ED6A} = {77363DFA-B2B3-45DD-BDDF-01A38CEEE257}
 		{8F1D009C-647C-401C-BA9B-B781209A0E04} = {77363DFA-B2B3-45DD-BDDF-01A38CEEE257}
 		{98C01306-A18E-44F6-B21E-FBD10EA73B08} = {77363DFA-B2B3-45DD-BDDF-01A38CEEE257}
+		{89773136-6B56-443B-A6ED-1CB024FB345A} = {77363DFA-B2B3-45DD-BDDF-01A38CEEE257}
 	EndGlobalSection
 EndGlobal
