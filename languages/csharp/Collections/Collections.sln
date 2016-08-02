@@ -85,6 +85,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumerateItems", "Enumerate
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enumerate-While-Changing", "Enumerate-While-Changing\Enumerate-While-Changing.csproj", "{14E66609-9433-446A-8E6C-DB73AC924078}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Implement-Enumerator", "Implement-Enumerator\Implement-Enumerator.csproj", "{68A4C692-B0AE-44DB-B1B6-931B53FAA635}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -227,6 +229,10 @@ Global
 		{14E66609-9433-446A-8E6C-DB73AC924078}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14E66609-9433-446A-8E6C-DB73AC924078}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14E66609-9433-446A-8E6C-DB73AC924078}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68A4C692-B0AE-44DB-B1B6-931B53FAA635}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68A4C692-B0AE-44DB-B1B6-931B53FAA635}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68A4C692-B0AE-44DB-B1B6-931B53FAA635}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68A4C692-B0AE-44DB-B1B6-931B53FAA635}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -266,5 +272,6 @@ Global
 		{89773136-6B56-443B-A6ED-1CB024FB345A} = {77363DFA-B2B3-45DD-BDDF-01A38CEEE257}
 		{F251BF73-FEDA-40CC-AA32-76E42A355856} = {676F9FEE-1834-4967-98AB-0A218101317E}
 		{14E66609-9433-446A-8E6C-DB73AC924078} = {676F9FEE-1834-4967-98AB-0A218101317E}
+		{68A4C692-B0AE-44DB-B1B6-931B53FAA635} = {676F9FEE-1834-4967-98AB-0A218101317E}
 	EndGlobalSection
 EndGlobal
