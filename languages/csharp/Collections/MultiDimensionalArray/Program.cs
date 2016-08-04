@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 
 namespace MultiDimensionalArray
 {
@@ -8,17 +8,20 @@ namespace MultiDimensionalArray
         {
             float[,] tempsGrid = new float[4, 3];
 
-            for (int x = 0; x < 4; x++)
+            Console.WriteLine("Length is " + tempsGrid.Length);
+            Console.WriteLine("Rank is " + tempsGrid.Rank);
+
+            for (int x = 0; x < tempsGrid.GetLength(0); x++)
             {
-                for (int y = 0; y < 3; y++)
+                for (int y = 0; y < tempsGrid.GetLength(1); y++)
                 {
                     tempsGrid[x, y] = x + 10*y;
                 }
             }
 
-            for (int x = 0; x < 4; x++)
+            for (int x = 0; x < tempsGrid.GetLength(0); x++)
             {
-                for (int y = 0; y < 3; y++)
+                for (int y = 0; y < tempsGrid.GetLength(1); y++)
                 {
                     Console.Write(tempsGrid[x, y] + ", ");
                 }
