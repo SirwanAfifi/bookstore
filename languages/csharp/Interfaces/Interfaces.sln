@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polygons", "Polygons\Polygo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polygons.Library", "Polygons.Library\Polygons.Library.csproj", "{72003861-C5FA-42E3-AD54-7974DA3F4CB8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FutureProofing", "FutureProofing", "{DFA4AF5C-E493-4D13-8472-B113D52CDF11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonLibrary", "PersonLibrary\PersonLibrary.csproj", "{02BBAB1E-641D-4E62-A9A0-94C9C0D9D716}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleViewer", "PeopleViewer\PeopleViewer.csproj", "{8F5B1E8F-8877-417C-BF08-A433062EC146}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +29,14 @@ Global
 		{72003861-C5FA-42E3-AD54-7974DA3F4CB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72003861-C5FA-42E3-AD54-7974DA3F4CB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72003861-C5FA-42E3-AD54-7974DA3F4CB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02BBAB1E-641D-4E62-A9A0-94C9C0D9D716}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02BBAB1E-641D-4E62-A9A0-94C9C0D9D716}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02BBAB1E-641D-4E62-A9A0-94C9C0D9D716}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02BBAB1E-641D-4E62-A9A0-94C9C0D9D716}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F5B1E8F-8877-417C-BF08-A433062EC146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F5B1E8F-8877-417C-BF08-A433062EC146}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F5B1E8F-8877-417C-BF08-A433062EC146}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F5B1E8F-8877-417C-BF08-A433062EC146}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,5 +44,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B98EF553-5046-4092-9844-304A03489BEC} = {E59974C8-8BF1-4641-BBAC-A69C35773CA4}
 		{72003861-C5FA-42E3-AD54-7974DA3F4CB8} = {E59974C8-8BF1-4641-BBAC-A69C35773CA4}
+		{02BBAB1E-641D-4E62-A9A0-94C9C0D9D716} = {DFA4AF5C-E493-4D13-8472-B113D52CDF11}
+		{8F5B1E8F-8877-417C-BF08-A433062EC146} = {DFA4AF5C-E493-4D13-8472-B113D52CDF11}
 	EndGlobalSection
 EndGlobal
