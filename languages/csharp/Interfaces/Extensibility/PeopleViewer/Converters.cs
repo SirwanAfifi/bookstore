@@ -10,7 +10,10 @@ namespace PeopleViewer
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            int year = ((DateTime)value).Year;
+            var dt = ((DateTime)value).ToString("yyyy/MM/dd");
+            var date = DateTime.Parse(dt, CultureInfo.InvariantCulture);
+
+            int year = (date).Year;
             return $"{year.ToString().Substring(0, 3)}0s";
         }
 
