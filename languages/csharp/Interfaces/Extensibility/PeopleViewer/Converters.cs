@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Data;
 using System.Windows.Media;
@@ -10,7 +11,7 @@ namespace PeopleViewer
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             int year = ((DateTime)value).Year;
-            return string.Format("{0}0s", year.ToString().Substring(0, 3));
+            return $"{year.ToString().Substring(0, 3)}0s";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
@@ -24,7 +25,7 @@ namespace PeopleViewer
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             int rating = (int)value;
-            return string.Format("{0}/10 Stars", rating.ToString());
+            return $"{rating.ToString()}/10 Stars";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
@@ -61,7 +62,10 @@ namespace PeopleViewer
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            int decade = (((DateTime)value).Year / 10) * 10;
+            var dt = ((DateTime) value).ToString("yyyy/MM/dd");
+            var date = DateTime.Parse(dt, CultureInfo.InvariantCulture);
+
+            int decade = (date.Year / 10) * 10;
 
             switch (decade)
             {
