@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Data;
 using System.Windows.Media;
 
@@ -65,8 +66,14 @@ namespace PeopleViewer
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
+            string persianDateRegex = @"(?:0?[1-9]|[12][0-9]|3[01])\/(?:0?[1-9]|1[0-2])\/(?:1[23]\d{2})$";
+            var date = new DateTime();
+
             var dt = ((DateTime) value).ToString("yyyy/MM/dd");
-            var date = DateTime.Parse(dt, CultureInfo.InvariantCulture);
+            if (Regex.IsMatch(dt, persianDateRegex))
+                date = DateTime.Parse(dt, CultureInfo.InvariantCulture);
+            else
+                date = ((DateTime) value);
 
             int decade = (date.Year / 10) * 10;
 
