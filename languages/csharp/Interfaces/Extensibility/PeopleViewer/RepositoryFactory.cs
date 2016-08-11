@@ -1,4 +1,8 @@
-﻿using PersonRepository.Interface;
+﻿using System;
+using PersonRepository.CSV;
+using PersonRepository.Interface;
+using PersonRepository.Service;
+using PersonRepository.SQL;
 
 namespace PeopleViewer
 {
@@ -6,7 +10,20 @@ namespace PeopleViewer
     {
         public static IPersonRepository GetRepository(string repositoryType)
         {
-            return null;
+            IPersonRepository repo = null;
+            switch (repositoryType)
+            {
+                case "Service": repo = new ServiceRepository();
+                    break;
+                case "CSV": repo = new CSVRepository();
+                    break;
+                case "SQL": repo = new SQLRepository();
+                    break;
+                default:
+                    throw new ArgumentException("Invalid Repository Type");
+                    
+            }
+            return repo;
         }
     }
 }
