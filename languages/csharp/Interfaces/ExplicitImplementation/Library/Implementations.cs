@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Library
 {
@@ -29,6 +31,19 @@ namespace Library
         string IPersistable.Save()
         {
             return "IPersistable Save";
+        }
+    }
+
+    public class EnumerableCatalog : IEnumerable<string>
+    {
+        public IEnumerator<string> GetEnumerator()
+        {
+            return null;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
         }
     }
 }
