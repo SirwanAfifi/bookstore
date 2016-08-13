@@ -3,5 +3,5 @@
 
 
 var machine = new VendingMachine();
-machine.size = 12;
+machine.size = 6;
 ko.applyBindings(machine);
