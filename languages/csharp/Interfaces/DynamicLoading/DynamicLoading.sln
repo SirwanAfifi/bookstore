@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{FD6E6425-18C0-48BF-A31A-8D648BCD8343}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{027C1B7D-9743-4787-953A-4625D676E523}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{1CC41AEA-1D51-49DD-B973-FCE1E9F9AE9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonRepository.Interface", "PersonRepository.Interface\PersonRepository.Interface.csproj", "{9B0F42C1-38C5-4AC3-A886-99CC909B9846}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "People.Service", "People.Service\People.Service.csproj", "{5FE8AD75-B070-4A7F-9587-C40EE51BDD44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleViewer.Basic", "PeopleViewer.Basic\PeopleViewer.Basic.csproj", "{EC6283B8-58C2-41FF-80C6-0C5C7A402541}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleViewer.Test", "PeopleViewer.Test\PeopleViewer.Test.csproj", "{31C2E258-7B2D-43B9-B147-38462F76E8F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleViewer.Layered", "PeopleViewer.Layered\PeopleViewer.Layered.csproj", "{D85FBE12-9358-47A4-89D1-3A291FF371D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonRepository.Fake", "PersonRepository.Fake\PersonRepository.Fake.csproj", "{C6912B91-8959-4D00-BB76-98CF5A584D18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B0F42C1-38C5-4AC3-A886-99CC909B9846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B0F42C1-38C5-4AC3-A886-99CC909B9846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B0F42C1-38C5-4AC3-A886-99CC909B9846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B0F42C1-38C5-4AC3-A886-99CC909B9846}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FE8AD75-B070-4A7F-9587-C40EE51BDD44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FE8AD75-B070-4A7F-9587-C40EE51BDD44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FE8AD75-B070-4A7F-9587-C40EE51BDD44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FE8AD75-B070-4A7F-9587-C40EE51BDD44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC6283B8-58C2-41FF-80C6-0C5C7A402541}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC6283B8-58C2-41FF-80C6-0C5C7A402541}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC6283B8-58C2-41FF-80C6-0C5C7A402541}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC6283B8-58C2-41FF-80C6-0C5C7A402541}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31C2E258-7B2D-43B9-B147-38462F76E8F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31C2E258-7B2D-43B9-B147-38462F76E8F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31C2E258-7B2D-43B9-B147-38462F76E8F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31C2E258-7B2D-43B9-B147-38462F76E8F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D85FBE12-9358-47A4-89D1-3A291FF371D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D85FBE12-9358-47A4-89D1-3A291FF371D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D85FBE12-9358-47A4-89D1-3A291FF371D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D85FBE12-9358-47A4-89D1-3A291FF371D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6912B91-8959-4D00-BB76-98CF5A584D18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6912B91-8959-4D00-BB76-98CF5A584D18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6912B91-8959-4D00-BB76-98CF5A584D18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6912B91-8959-4D00-BB76-98CF5A584D18}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9B0F42C1-38C5-4AC3-A886-99CC909B9846} = {FD6E6425-18C0-48BF-A31A-8D648BCD8343}
+		{5FE8AD75-B070-4A7F-9587-C40EE51BDD44} = {027C1B7D-9743-4787-953A-4625D676E523}
+		{31C2E258-7B2D-43B9-B147-38462F76E8F9} = {1CC41AEA-1D51-49DD-B973-FCE1E9F9AE9D}
+		{C6912B91-8959-4D00-BB76-98CF5A584D18} = {FD6E6425-18C0-48BF-A31A-8D648BCD8343}
+	EndGlobalSection
+EndGlobal
