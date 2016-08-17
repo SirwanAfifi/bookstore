@@ -50,7 +50,7 @@ class Dollar extends Coin {
         this.value = newValue;
     }
     getImageUrl (): string {
-        return "img/Dollar.png";
+        return "img/Dollar.jpg";
     }
 }
 var coin = new Quarter();
