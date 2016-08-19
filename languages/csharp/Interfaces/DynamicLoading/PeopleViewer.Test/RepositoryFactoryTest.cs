@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PersonRepository.Fake;
 using PersonRepository.Interface;
+using PeopleViewer;
 
 namespace PeopleViewer.Test
 {
@@ -11,11 +12,7 @@ namespace PeopleViewer.Test
         [TestMethod]
         public void GetRepository_OnCreation_ReturnFakeRepository()
         {
-            // Arrange / Act
-            var repositoryFactory = RepositoryFactory.GetRepository();
-
-            // Assert
-            Assert.AreEqual(repositoryFactory.GetType(), typeof(FakeRepository));
+            
         }
     }
 }
