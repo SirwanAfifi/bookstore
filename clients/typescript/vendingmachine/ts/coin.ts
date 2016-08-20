@@ -1,58 +1,58 @@
-abstract class Coin {
-    constructor(public value: number) {
-        this.value = value;
+namespace Coins {
+    let imagePath = "img/";
+    export abstract class Coin {
+        constructor(public value: number) {
+            this.value = value;
+        }
+        abstract getImageUrl(): string;
     }
-    abstract getImageUrl(): string;
-}
 
 
-class Quarter extends Coin {
-   constructor() {
-       super(.25);
-   }
-    set Value(newValue: number) {
-        this.value = newValue;
+    export class Quarter extends Coin {
+        constructor() {
+            super(.25);
+        }
+        set Value(newValue: number) {
+            this.value = newValue;
+        }
+        getImageUrl(): string {
+            return imagePath + "Quarter.png";
+        }
     }
-    getImageUrl (): string {
-        return "img/Quarter.png";
-    }
-}
 
-class Dime extends Coin {
-   constructor() {
-       super(.25);
-   }
-    set Value(newValue: number) {
-        this.value = newValue;
+    export class Dime extends Coin {
+        constructor() {
+            super(.25);
+        }
+        set Value(newValue: number) {
+            this.value = newValue;
+        }
+        getImageUrl(): string {
+            return imagePath + "Dime.png";
+        }
     }
-    getImageUrl (): string {
-        return "img/Dime.png";
-    }
-}
 
-class Half extends Coin {
-   constructor() {
-       super(.25);
-   }
-    set Value(newValue: number) {
-        this.value = newValue;
+    export class Half extends Coin {
+        constructor() {
+            super(.25);
+        }
+        set Value(newValue: number) {
+            this.value = newValue;
+        }
+        getImageUrl(): string {
+            return imagePath + "Half.png";
+        }
     }
-    getImageUrl (): string {
-        return "img/Half.png";
-    }
-}
 
-class Dollar extends Coin {
-   constructor() {
-       super(.25);
-   }
-    set Value(newValue: number) {
-        this.value = newValue;
-    }
-    getImageUrl (): string {
-        return "img/Dollar.jpg";
+    export class Dollar extends Coin {
+        constructor() {
+            super(.25);
+        }
+        set Value(newValue: number) {
+            this.value = newValue;
+        }
+        getImageUrl(): string {
+            return imagePath + "Dollar.jpg";
+        }
     }
 }
-var coin = new Quarter();
-var value = coin.Value;
-coin.Value = 0.25;
