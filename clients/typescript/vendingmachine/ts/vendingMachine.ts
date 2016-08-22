@@ -12,15 +12,15 @@ class Cell {
     constructor (public product: IProduct) {
 
     }
-    stock = ko.observable(3);
-    sold = ko.observable(false);
+    stock = ko.observable<number>(3);
+    sold = ko.observable<boolean>(false);
 }
 
 export class VendingMachine {
     private paid = ko.observable(0);
     selectedCell = ko.observable(new Cell(new Initial()));
     cells = ko.observableArray([]);
-    acceptedCoins: Coins.Coin[] = [new Coins.Dime(), new Coins.Quarter(), new Coins.Half(), new Coins.Dollar()];
+    acceptedCoins: Array<Coins.Coin> = [new Coins.Dime(), new Coins.Quarter(), new Coins.Half(), new Coins.Dollar()];
     canPay = ko.pureComputed(() => this.paid() -
         this.selectedCell().product.price >= 0);
 
