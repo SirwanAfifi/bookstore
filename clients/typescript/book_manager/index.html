@@ -9,17 +9,30 @@
 
 <body>
     <div class="container">
-        <h1>Book manager app</h1>
-        <ul data-bind="foreach: { data: bookArr, as: 'book' }">
-            <li>
-                <span data-bind="text: book.bookName"></span> - 
-                <span data-bind="text: book.category.catName"></span>
-            </li>
-        </ul>
+        <div class="page-header">
+            <h1>Book manager app</h1>
+        </div>
+
+        <div class="row" data-bind="foreach: { data: bookArr, as: 'book' }">
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <img src="images/cover.jpg" alt="...">
+                    <div class="caption">
+                        <h3 data-bind="text: book.bookName"></h3>
+                        <p data-bind="text: book.category.cateName"></p>
+                        <p>
+                            <a href="#" class="btn btn-primary" role="button">Detail</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="js/lib/knockout-3.4.0.js"></script>
     <script src="js/lib/underscore-min.js"></script>
+    <script src="js/lib/jquery.min.js"></script>
     <script src="js/app.js"></script>
 </body>
+
 </html>

@@ -19,21 +19,28 @@ var BookManager = (function () {
         console.log(this.bookArr());
     }
     BookManager.prototype.getAllBooks = function () {
-        return [
-            new Book("Book1", new BookCategory("Category1")),
-            new Book("Book2", new BookCategory("Category2")),
-            new Book("Book3", new BookCategory("Category3")),
-            new Book("Book4", new BookCategory("Category4")),
-            new Book("Book5", new BookCategory("Category5")),
-            new Book("Book6", new BookCategory("Category6")),
-            new Book("Book7", new BookCategory("Category7")),
-            new Book("Book8", new BookCategory("Category8")),
-        ];
+        var json = null;
+        $.ajax({
+            'async': false,
+            'global': false,
+            'url': '../data/books.json',
+            'dataType': "json",
+            'success': function (data) {
+                json = data;
+            }
+        });
+        return json;
+    };
+    BookManager.prototype.getBook = function (cateName) {
+        var books = _.filter(this.bookArr(), function (book) { return book.category.catName === cateName; });
+        return books;
     };
     return BookManager;
 }());
 /// <reference path="BookManager.ts" />
 /// <reference path="typings/knockout.d.ts" />
+/// <reference path="typings/underscore.d.ts" />
+/// <reference path="typings/jquery.d.ts" />
 var manager = new BookManager();
 ko.applyBindings(manager);
 //# sourceMappingURL=app.js.map
