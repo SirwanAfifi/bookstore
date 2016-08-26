@@ -13,6 +13,13 @@
             <h1>Book manager app</h1>
         </div>
 
+        <div class="row">
+            <div class="col-md-4">
+                 <input type="text" class="form-control" placeholder="Search a book..." data-bind="text: bookName">
+            </div>
+        </div>
+        <hr>
+
         <div class="row" data-bind="foreach: { data: bookArr, as: 'book' }">
             <div class="col-md-4">
                 <div class="thumbnail">

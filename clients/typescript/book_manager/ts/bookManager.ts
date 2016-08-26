@@ -3,6 +3,7 @@
 class BookManager {
 
     bookArr = ko.observableArray<Book>(this.getAllBooks());
+    bookName = ko.observable();
 
     constructor() {
         console.log(this.bookArr());
@@ -19,7 +20,7 @@ class BookManager {
                 json = data;
             }
         });
-        
+
         return json;
     }
 

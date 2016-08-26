@@ -16,6 +16,7 @@ var Book = (function () {
 var BookManager = (function () {
     function BookManager() {
         this.bookArr = ko.observableArray(this.getAllBooks());
+        this.bookName = ko.observable();
         console.log(this.bookArr());
     }
     BookManager.prototype.getAllBooks = function () {
