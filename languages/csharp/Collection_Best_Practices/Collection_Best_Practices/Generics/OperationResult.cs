@@ -1,6 +1,6 @@
 ﻿namespace Generics
 {
-    public class OperationResult<T>
+    public class OperationResult<T> where T : struct 
     {
         public OperationResult()
         {
