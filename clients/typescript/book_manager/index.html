@@ -11,16 +11,17 @@
     <div class="container">
         <div class="page-header">
             <h1>Book manager app</h1>
+            Shopping Cart: <span data-bind="text: shoppingCart.total"></span>
         </div>
 
         <div class="row">
             <div class="col-md-4">
-                 <input type="text" class="form-control" placeholder="Search a book..." data-bind="text: bookName">
+                 <input type="text" class="form-control" placeholder="Search a book..." data-bind="text: manager.bookName">
             </div>
         </div>
         <hr>
 
-        <div class="row" data-bind="foreach: { data: bookArr, as: 'book' }">
+        <div class="row" data-bind="foreach: { data: manager.bookArr, as: 'book' }">
             <div class="col-md-4">
                 <div class="thumbnail">
                     <img src="images/cover.jpg" alt="...">
@@ -28,7 +29,7 @@
                         <h3 data-bind="text: book.bookName"></h3>
                         <p data-bind="text: book.category.cateName"></p>
                         <p>
-                            <a href="#" class="btn btn-primary" role="button">Detail</a>
+                            <a href="#" class="btn btn-primary" role="button" data-bind="click: shoppingCart.addItem.bind('$data', book)">Add to Cart</a>
                         </p>
                     </div>
                 </div>

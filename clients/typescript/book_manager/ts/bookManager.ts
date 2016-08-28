@@ -6,7 +6,7 @@ class BookManager {
     bookName = ko.observable();
 
     constructor() {
-        console.log(this.bookArr());
+        //console.log(this.bookArr());
     }
 
     private getAllBooks(): Array<Book> {
