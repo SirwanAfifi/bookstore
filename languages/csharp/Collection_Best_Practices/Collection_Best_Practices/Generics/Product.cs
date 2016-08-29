@@ -1,5 +1,6 @@
 ﻿using Generics;
 using System;
+using System.Collections.Generic;
 
 namespace Generics
 {
@@ -11,28 +12,10 @@ namespace Generics
         #region Constructors
         public Product()
         {
-            //var colorOptions = new string[4];
-            //colorOptions[0] = "Red";
-            //colorOptions[1] = "Espresso";
-            //colorOptions[2] = "White";
-            //colorOptions[3] = "Navy";
-
-            string[] colorOptions = { "Red", "Espresso", "White", "Navy" };
-
-            var brownIndex = Array.IndexOf(colorOptions, "Espresso");
-
-            colorOptions.SetValue("Blue", 3);
-
-            for (int i = 0; i < colorOptions.Length; i++)
-            {
-                colorOptions[i] = colorOptions[i].ToLower();
-            }
-
-            foreach (var color in colorOptions)
-            {
-                Console.WriteLine($"The color is {color}");
-            }
-
+            var colorOptions = new List<string> {"Red", "Espresso", "White", "Navy"};
+            colorOptions.Insert(2, "Purple");
+            colorOptions.Remove("White");
+            Console.WriteLine(colorOptions);
         }
 
         public Product(int productId,
