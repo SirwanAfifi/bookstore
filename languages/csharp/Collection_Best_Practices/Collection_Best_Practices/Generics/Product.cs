@@ -12,10 +12,13 @@ namespace Generics
         #region Constructors
         public Product()
         {
-            var colorOptions = new List<string> {"Red", "Espresso", "White", "Navy"};
-            colorOptions.Insert(2, "Purple");
-            colorOptions.Remove("White");
-            Console.WriteLine(colorOptions);
+            var states = new Dictionary<string, string>
+            {
+                {"CA", "California"},
+                { "WA", "Washington"},
+                { "NY", "New York"}
+            };
+            Console.WriteLine(states);
         }
 
         public Product(int productId,
