@@ -69,5 +69,23 @@ namespace Generics.Tests
             //Assert
             CollectionAssert.AreEqual(expected, actual);
         }
+
+        [TestMethod()]
+        public void RetrieveWithKeysTest()
+        {
+            //Arrange
+            var repository = new VendorRepository();
+            var expected = new Dictionary<string, Vendor>()
+            {
+                { "ABC", new Vendor() { VendorId = 1, CompanyName = "ABC", Email = "ABC@gmail.com" } },
+                { "XYZ Inc", new Vendor() { VendorId = 2, CompanyName = "XYZ", Email = "XYZ@gmail.com" } }
+            };
+
+            //Act
+            var actual = repository.RetrieveWithKeys();
+
+            //Assert
+            CollectionAssert.AreEqual(expected, actual);
+        }
     }
 }

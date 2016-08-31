@@ -48,6 +48,17 @@ namespace Generics
             }
             Console.WriteLine(vendors);
             return vendors;
+        }
+
+        public Dictionary<string, Vendor> RetrieveWithKeys()
+        {
+            var vendors = new Dictionary<string, Vendor>()
+            {
+                { "ABC", new Vendor() { VendorId = 1, CompanyName = "ABC", Email = "ABC@gmail.com" } },
+                { "XYZ Inc", new Vendor() { VendorId = 2, CompanyName = "XYZ", Email = "XYZ@gmail.com" } }
+            };
+            Console.WriteLine(vendors);
+            return vendors;
         } 
 
         public T RetrieveValue<T>(string sql, T defaultValue)
