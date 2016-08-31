@@ -57,7 +57,24 @@ namespace Generics
                 { "ABC", new Vendor() { VendorId = 1, CompanyName = "ABC", Email = "ABC@gmail.com" } },
                 { "XYZ Inc", new Vendor() { VendorId = 2, CompanyName = "XYZ", Email = "XYZ@gmail.com" } }
             };
-            Console.WriteLine(vendors["XYZ Inc"]);
+
+            foreach (var element in vendors)
+            {
+                var vendor = element.Value;
+                var key = element.Key;
+                Console.WriteLine($"Key: {key} Value: {vendor}");
+            }
+
+            /*foreach (var vendor in vendors.Values)
+            {
+                Console.WriteLine(vendor);
+            }*/
+
+            /*foreach (var companyName in vendors.Keys)
+            {
+                Console.WriteLine(vendors[companyName]);
+            }
+
             if (vendors.ContainsKey("XYZ"))
             {
                 Console.WriteLine(vendors["XYZ"]);
@@ -67,7 +84,7 @@ namespace Generics
             if (vendors.TryGetValue("XYZ", out vendor))
             {
                 Console.WriteLine(vendor);
-            }
+            }*/
             return vendors;
         } 
 
