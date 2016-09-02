@@ -27,6 +27,19 @@ namespace Generics
             return vendor;
         }
 
+        public Vendor[] RetrieveArray()
+        {
+            var vendors = new Vendor[2]
+            {
+                new Vendor() { VendorId = 1, CompanyName = "ABC", Email = "ABC@gmail.com" },
+                new Vendor() { VendorId = 2, CompanyName = "XYZ", Email = "XYZ@gmail.com" }
+            };
+
+            return vendors;
+        }
+
+
+
         public List<Vendor> Retrieve()
         {
             if (vendors == null)
