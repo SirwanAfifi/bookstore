@@ -27,27 +27,16 @@ namespace Generics
             return vendor;
         }
 
-        public Vendor[] RetrieveArray()
-        {
-            var vendors = new Vendor[2]
-            {
-                new Vendor() { VendorId = 1, CompanyName = "ABC", Email = "ABC@gmail.com" },
-                new Vendor() { VendorId = 2, CompanyName = "XYZ", Email = "XYZ@gmail.com" }
-            };
-
-            return vendors;
-        }
-
-
-
-        public List<Vendor> Retrieve()
+        public IEnumerable<Vendor> Retrieve()
         {
             if (vendors == null)
             {
                 vendors = new List<Vendor>();
 
-                vendors.Add(new Vendor() { VendorId = 1, CompanyName = "ABC", Email = "ABC@gmail.com" });
-                vendors.Add(new Vendor() { VendorId = 2, CompanyName = "XYZ", Email = "XYZ@gmail.com" });
+                vendors.Add(new Vendor()
+                { VendorId = 1, CompanyName = "ABC Corp", Email = "abc@abc.com" });
+                vendors.Add(new Vendor()
+                { VendorId = 2, CompanyName = "XYZ Inc", Email = "xyz@xyz.com" });
             }
 
             for (int i = 0; i < vendors.Count; i++)
@@ -57,48 +46,22 @@ namespace Generics
 
             foreach (var vendor in vendors)
             {
-                Console.WriteLine(vendor);
+                //Console.WriteLine(vendor);
             }
-            Console.WriteLine(vendors);
+
             return vendors;
         }
 
-        public Dictionary<string, Vendor> RetrieveWithKeys()
+
+        public IEnumerable<Vendor> RetrieveWithIterator()
         {
-            var vendors = new Dictionary<string, Vendor>()
-            {
-                { "ABC", new Vendor() { VendorId = 1, CompanyName = "ABC", Email = "ABC@gmail.com" } },
-                { "XYZ Inc", new Vendor() { VendorId = 2, CompanyName = "XYZ", Email = "XYZ@gmail.com" } }
-            };
+            this.Retrieve();
 
-            foreach (var element in vendors)
+            foreach (var vendor in vendors)
             {
-                var vendor = element.Value;
-                var key = element.Key;
-                Console.WriteLine($"Key: {key} Value: {vendor}");
+                Console.WriteLine($"Vendor Id: {vendor.VendorId}");
+                yield return vendor;
             }
-
-            /*foreach (var vendor in vendors.Values)
-            {
-                Console.WriteLine(vendor);
-            }*/
-
-            /*foreach (var companyName in vendors.Keys)
-            {
-                Console.WriteLine(vendors[companyName]);
-            }
-
-            if (vendors.ContainsKey("XYZ"))
-            {
-                Console.WriteLine(vendors["XYZ"]);
-            }
-
-            Vendor vendor;
-            if (vendors.TryGetValue("XYZ", out vendor))
-            {
-                Console.WriteLine(vendor);
-            }*/
-            return vendors;
         } 
 
         public T RetrieveValue<T>(string sql, T defaultValue)

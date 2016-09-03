@@ -67,22 +67,27 @@ namespace Generics.Tests
             var actual = repository.Retrieve();
 
             //Assert
-            CollectionAssert.AreEqual(expected, actual);
+            CollectionAssert.AreEqual(expected, actual.ToList());
         }
 
         [TestMethod()]
-        public void RetrieveWithKeysTest()
+        public void RetrieveWithIteratorTest()
         {
             //Arrange
             var repository = new VendorRepository();
-            var expected = new Dictionary<string, Vendor>()
+            var expected = new List<Vendor>
             {
-                { "ABC", new Vendor() { VendorId = 1, CompanyName = "ABC", Email = "ABC@gmail.com" } },
-                { "XYZ Inc", new Vendor() { VendorId = 2, CompanyName = "XYZ", Email = "XYZ@gmail.com" } }
+                new Vendor() {VendorId = 1, CompanyName = "ABC", Email = "ABC@gmail.com"},
+                new Vendor() {VendorId = 2, CompanyName = "XYZ", Email = "XYZ@gmail.com"}
             };
 
             //Act
-            var actual = repository.RetrieveWithKeys();
+            var vendorIterator = repository.RetrieveWithIterator();
+            foreach (var item in vendorIterator)
+            {
+                Console.WriteLine(item);
+            }
+            var actual = vendorIterator.ToList();
 
             //Assert
             CollectionAssert.AreEqual(expected, actual);
@@ -100,10 +105,10 @@ namespace Generics.Tests
                 "Message sent: Important message for: XYZ"
             };
             //Act
-            var actual = Vendor.SendEmail(vendors, "Test Message");
+            var actual = Vendor.SendEmail(vendors.ToList(), "Test Message");
 
             //Assert
-            CollectionAssert.AreEqual(expected, actual);
+            CollectionAssert.AreEqual(expected, actual.ToList());
         }
 
         [TestMethod()]
@@ -111,17 +116,20 @@ namespace Generics.Tests
         {
             //Arrange
             var vendorRepository = new VendorRepository();
-            var vendors = vendorRepository.RetrieveArray();
+            var vendorsCollection = vendorRepository.Retrieve();
             var expected = new List<string>()
             {
                 "Message sent: Important message for: ABC",
                 "Message sent: Important message for: XYZ"
             };
+            var array = vendorsCollection.ToArray();
+            var list = vendorsCollection.ToList();
+            var dictionary = vendorsCollection.ToDictionary(p => p.CompanyName);
             //Act
-            var actual = Vendor.SendEmail(vendors, "Test Message");
+            //var actual = Vendor.SendEmail(vendorsCollection, "Test Message");
 
             //Assert
-            CollectionAssert.AreEqual(expected, actual);
+            //CollectionAssert.AreEqual(expected, actual);
         }
 
         [TestMethod()]
@@ -129,13 +137,13 @@ namespace Generics.Tests
         {
             //Arrange
             var vendorRepository = new VendorRepository();
-            var vendors = vendorRepository.RetrieveWithKeys();
+            var vendorsCollection = vendorRepository.Retrieve();
             var expected = new List<string>()
             {
                 "Message sent: Important message for: ABC",
                 "Message sent: Important message for: XYZ"
             };
-
+            var vendors = vendorsCollection.ToDictionary(p => p.CompanyName);
             //Act
             var actual = Vendor.SendEmail(vendors.Values, "Test Message");
 
