@@ -11,6 +11,44 @@ namespace Generics.Tests
     [TestClass()]
     public class GenericTests
     {
+        [TestMethod]
+        public void RetrieveAllTest()
+        {
+            //Arrange
+            var repository = new VendorRepository();
+            var expected = new List<Vendor>()
+            {
+                {
+                new Vendor()
+                { VendorId = 22, CompanyName = "Amalgamated Toys", Email = "a@abc.com"}},
+                {
+                new Vendor()
+                { VendorId = 28, CompanyName = "Toy Blocks Inc", Email = "blocks@abc.com" }},
+                {
+                new Vendor()
+                { VendorId = 35, CompanyName = "Car Toys", Email = "car@abc.com" }},
+                {
+                new Vendor()
+                { VendorId = 42, CompanyName = "Toys for Fun", Email = "fun@abc.com" }}
+            };
+
+            //Act
+            var vendors = repository.RetrieveAll();
+            /*var vendorQuery = from v in vendors
+                            where v.CompanyName.Contains("Toy")
+                            select v;*/
+
+            var vendorQuery = vendors.Where(v => v.CompanyName.Contains("Toy"));
+
+
+            //Assert
+            CollectionAssert.AreEqual(expected, vendorQuery.ToList());
+        }
+
+        private bool FilterCompany(Vendor v) => v.CompanyName.Contains("Toy");
+
+
+
         [TestMethod()]
         public void RetrieveValueTest()
         {
