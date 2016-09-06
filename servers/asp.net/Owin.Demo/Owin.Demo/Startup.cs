@@ -27,10 +27,10 @@ namespace Owin.Demo
                 }
             });
 
+            app.UseNancy();
 
             app.Use(async (ctx, next) =>
             {
-                
                 await ctx.Response.WriteAsync("<html><head></head><body><h1>Hello World</h1></body></html>");
             });
         }
