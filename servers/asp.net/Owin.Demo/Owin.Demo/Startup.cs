@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.Owin;
 using Owin;
+using Owin.Demo.Middleware;
 
 namespace Owin.Demo
 {
@@ -10,16 +11,26 @@ namespace Owin.Demo
     {
         public static void Configuration(IAppBuilder app)
         {
-            app.Use(async (ctx, next) =>
+            app.UseDebugMiddleware(new DebubMiddlewareOptions
             {
-                Debug.WriteLine("Incoming request: " + ctx.Request.Path);
-                await next();
-                Debug.WriteLine("Outgoing request: " + ctx.Request.Path);
+                OnIncomingRequest = (ctx) =>
+                {
+                    var watch = new Stopwatch();
+                    watch.Start();
+                    ctx.Environment["DebugStopwatch"] = watch;
+                },
+                OnOutgoingRequest = (ctx) =>
+                {
+                    var watch = (Stopwatch)ctx.Environment["DebugStopwatch"];
+                    watch.Stop();
+                    Debug.WriteLine("Request took: " + watch.Elapsed.Milliseconds);
+                }
             });
 
 
             app.Use(async (ctx, next) =>
             {
+                
                 await ctx.Response.WriteAsync("<html><head></head><body><h1>Hello World</h1></body></html>");
             });
         }
