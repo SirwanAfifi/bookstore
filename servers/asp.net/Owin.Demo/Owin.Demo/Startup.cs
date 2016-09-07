@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Web.Http;
 using Microsoft.Owin;
+using Nancy;
+using Nancy.Owin;
 using Owin;
 using Owin.Demo.Middleware;
 
@@ -27,7 +30,21 @@ namespace Owin.Demo
                 }
             });
 
-            app.UseNancy();
+            var webApiconfig = new HttpConfiguration
+            {
+                
+            };
+            // این متد تمامی کنترلرها را جستجو کرده
+            // و تمامی اتریبیوت‌هایی که نوشته‌ایم را نگاشت خواهد داد
+            webApiconfig.MapHttpAttributeRoutes();
+            // افزودن وب‌ای‌پی‌آی به پایپ‌لاین
+            app.UseWebApi(webApiconfig);
+
+            //app.Map("/nancy", mappedApp => { mappedApp.UseNancy(); });
+            app.UseNancy(config =>
+            {
+                config.PassThroughWhenStatusCodesAre(HttpStatusCode.NotFound);
+            });
 
             app.Use(async (ctx, next) =>
             {
