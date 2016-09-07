@@ -46,10 +46,14 @@ namespace Owin.Demo
                 config.PassThroughWhenStatusCodesAre(HttpStatusCode.NotFound);
             });
 
-            app.Use(async (ctx, next) =>
+            // چون این میان افزار یک خروجی به ریسپانس ارسال می‌کند
+            // در نتیجه درخواست‌ها جهت رسیدگی به فریم‌ورک ام‌وی‌سی ارسال نخواهد شد.
+            // ام‌وی‌سی زمانی همراه با پروژه کاتانا کار خواهد کرد که هیچ میان افزاری درون پایپ‌لاین وجود نداشته باشد که
+            // خروجی را به ریسپانس ارسال کند.
+            /*app.Use(async (ctx, next) =>
             {
                 await ctx.Response.WriteAsync("<html><head></head><body><h1>Hello World</h1></body></html>");
-            });
+            });*/
         }
     }
 }
