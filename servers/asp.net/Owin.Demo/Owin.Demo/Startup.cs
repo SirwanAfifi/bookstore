@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.Owin;
+using Microsoft.Owin.Security.Cookies;
 using Nancy;
 using Nancy.Owin;
 using Owin;
@@ -28,6 +29,12 @@ namespace Owin.Demo
                     watch.Stop();
                     Debug.WriteLine("Request took: " + watch.Elapsed.Milliseconds);
                 }
+            });
+
+            app.UseCookieAuthentication(new CookieAuthenticationOptions
+            {
+                AuthenticationType = "ApplicationCookie",
+                LoginPath = new PathString("/Auth/Login")
             });
 
             var webApiconfig = new HttpConfiguration
