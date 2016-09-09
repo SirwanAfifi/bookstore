@@ -32,5 +32,13 @@ namespace Owin.Demo.Controllers
             }
             return View(model);
         }
+
+        [HttpPost]
+        public ActionResult Logout()
+        {
+            // در اینجا به کوکی میدل ویر گفته‌ایم که کاربر باید لاگ‌اوت شود
+            HttpContext.GetOwinContext().Authentication.SignOut();
+            return Redirect("/");
+        }
     }
 }
