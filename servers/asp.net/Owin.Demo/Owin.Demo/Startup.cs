@@ -37,6 +37,15 @@ namespace Owin.Demo
                 LoginPath = new PathString("/Auth/Login")
             });
 
+            app.Use(async (ctx, next) =>
+            {
+                if (ctx.Authentication.User.Identity.IsAuthenticated)
+                    Debug.WriteLine("User: " + ctx.Authentication.User.Identity.Name);
+                else
+                    Debug.WriteLine("User Not Authenticated");
+                await next();
+            });
+
             var webApiconfig = new HttpConfiguration
             {
                 
