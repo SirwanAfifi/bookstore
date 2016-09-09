@@ -47,11 +47,11 @@ namespace Owin.Demo
             // افزودن وب‌ای‌پی‌آی به پایپ‌لاین
             app.UseWebApi(webApiconfig);
 
-            //app.Map("/nancy", mappedApp => { mappedApp.UseNancy(); });
-            app.UseNancy(config =>
+            app.Map("/nancy", mappedApp => { mappedApp.UseNancy(); });
+            /*app.UseNancy(config =>
             {
                 config.PassThroughWhenStatusCodesAre(HttpStatusCode.NotFound);
-            });
+            });*/
 
             // چون این میان افزار یک خروجی به ریسپانس ارسال می‌کند
             // در نتیجه درخواست‌ها جهت رسیدگی به فریم‌ورک ام‌وی‌سی ارسال نخواهد شد.
