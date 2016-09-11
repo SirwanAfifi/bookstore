@@ -5,6 +5,7 @@ using System.Web.Http;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Facebook;
+using Microsoft.Owin.Security.Twitter;
 using Nancy;
 using Nancy.Owin;
 using Owin;
@@ -40,9 +41,17 @@ namespace Owin.Demo
 
             app.UseFacebookAuthentication(new FacebookAuthenticationOptions
             {
-                AppId = "187111645045655",
-                AppSecret = "3205f130d49d0722b57585c8a88db124",
+                AppId = "AppId",
+                AppSecret = "AppSecret",
                 SignInAsAuthenticationType = "ApplicationCookie"
+            });
+
+            app.UseTwitterAuthentication(new TwitterAuthenticationOptions
+            {
+                ConsumerKey = "ConsumerKey",
+                ConsumerSecret = "ConsumerSecret",
+                SignInAsAuthenticationType = "ApplicationCookie",
+                BackchannelCertificateValidator = null
             });
 
             app.Use(async (ctx, next) =>

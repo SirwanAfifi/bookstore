@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
@@ -13,6 +14,13 @@ namespace Owin.Demo.Controllers
         public ActionResult Login()
         {
             var model = new LoginModel();
+
+            var providers = HttpContext.GetOwinContext()
+                .Authentication.GetAuthenticationTypes(p => !string.IsNullOrEmpty(p.Caption))
+                .ToList();
+
+            model.GetAuthenticationTypes = providers;
+
             return View(model);
         }
 
@@ -42,14 +50,14 @@ namespace Owin.Demo.Controllers
             return Redirect("/");
         }
 
-        public ActionResult LoginFacebook()
+        public ActionResult SocialLogin(string id)
         {
             HttpContext.GetOwinContext()
                 .Authentication
                 .Challenge(new AuthenticationProperties
                             {
                                 RedirectUri = "/secret"
-                            }, "Facebook");
+                            }, id);
             return new HttpUnauthorizedResult();
         }
     }
