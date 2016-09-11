@@ -21,9 +21,10 @@
                 @Html.PasswordFor(x => x.Password)
             </div>
             <div>
-                <input type="submit" value="Log in" />
+                <input type="submit" value="Log in"/>
             </div>
         }
     </div>
+    <div>@Html.ActionLink("Log in with Facebook", "LoginFacebook")</div>
 </body>
 </html>

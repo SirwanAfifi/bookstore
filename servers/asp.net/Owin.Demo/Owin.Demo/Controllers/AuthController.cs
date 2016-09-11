@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Owin.Security;
 using Owin.Demo.Models;
 
 namespace Owin.Demo.Controllers
@@ -39,6 +40,17 @@ namespace Owin.Demo.Controllers
             // در اینجا به کوکی میدل ویر گفته‌ایم که کاربر باید لاگ‌اوت شود
             HttpContext.GetOwinContext().Authentication.SignOut();
             return Redirect("/");
+        }
+
+        public ActionResult LoginFacebook()
+        {
+            HttpContext.GetOwinContext()
+                .Authentication
+                .Challenge(new AuthenticationProperties
+                            {
+                                RedirectUri = "/secret"
+                            }, "Facebook");
+            return new HttpUnauthorizedResult();
         }
     }
 }
