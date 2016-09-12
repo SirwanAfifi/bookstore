@@ -30,5 +30,15 @@ namespace Owin.Demo.Tests
             }
         }
 
+        [TestMethod]
+        public async Task Owin_returns_correct_contenttype_on_request_to_jpg()
+        {
+            using (var server = TestServer.Create<Startup>())
+            {
+                var response = await server.HttpClient.GetAsync("/Me.jpg");
+                var contenttype = response.Content.Headers.ContentType.MediaType;
+                Assert.AreEqual("image/jpeg", contenttype);
+            }
+        }
     }
 }
