@@ -18,5 +18,15 @@ namespace Owin.Demo.Tests
                 Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
             }
         }
+
+        [TestMethod]
+        public async Task Owin_returns_hello_world_on_request_to_root()
+        {
+            using (var server = TestServer.Create<Startup>())
+            {
+                var response = await server.HttpClient.GetAsync("/");
+                Assert.AreEqual("Hello World", response);
+            }
+        }
     }
 }
