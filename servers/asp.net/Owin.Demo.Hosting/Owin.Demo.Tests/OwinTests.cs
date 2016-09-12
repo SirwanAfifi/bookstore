@@ -25,8 +25,10 @@ namespace Owin.Demo.Tests
             using (var server = TestServer.Create<Startup>())
             {
                 var response = await server.HttpClient.GetAsync("/");
-                Assert.AreEqual("Hello World", response);
+                var body = await response.Content.ReadAsStringAsync();
+                Assert.AreEqual("Hello World", body);
             }
         }
+
     }
 }
