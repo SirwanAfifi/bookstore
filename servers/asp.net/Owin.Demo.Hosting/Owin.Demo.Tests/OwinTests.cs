@@ -9,6 +9,14 @@ namespace Owin.Demo.Tests
     [TestClass]
     public class OwinTests
     {
-        
+        [TestMethod]
+        public async Task Owin_returns_200_on_request_to_root()
+        {
+            using (var server = TestServer.Create<Startup>())
+            {
+                var response = await server.HttpClient.GetAsync("/");
+                Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+            }
+        }
     }
 }
