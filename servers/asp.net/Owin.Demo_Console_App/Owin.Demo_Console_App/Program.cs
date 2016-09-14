@@ -1,8 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
 using Microsoft.Owin.Hosting;
 
 namespace Owin.Demo_Console_App
 {
+    using AppFunc = Func<IDictionary<string, object>, Task>;
+
     class Program
     {
         static void Main(string[] args)
@@ -22,13 +27,34 @@ namespace Owin.Demo_Console_App
     {
         public void Configuration(IAppBuilder app)
         {
-            app.UseErrorPage();
-            app.UseWelcomePage();
-            app.Run(ctx =>
+            app.UseHelloWorldComponent();
+        }
+    }
+
+    public static class AppBuilderExtension
+    {
+        public static void UseHelloWorldComponent(this IAppBuilder app)
+        {
+            app.Use<HelloWorldComponent>();
+        }
+    }
+
+    public class HelloWorldComponent
+    {
+        private readonly AppFunc _next;
+
+        public HelloWorldComponent(AppFunc next)
+        {
+            _next = next;
+        }
+
+        public Task Invoke(IDictionary<string, object> environment)
+        {
+            var response = environment["owin.ResponseBody"] as Stream;
+            using (var writer = new StreamWriter(response))
             {
-                throw new Exception();
-                return ctx.Response.WriteAsync("Hello");
-            });
+                return writer.WriteAsync("Hello!");
+            }
         }
     }
 }
