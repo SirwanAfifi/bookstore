@@ -1,29 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Security.Policy;
 using System.Threading.Tasks;
-using System.Web.Http;
-using Microsoft.Owin.Hosting;
 
 namespace Owin.Demo_Console_App
 {
+    using System.IO;
+    using System.Web.Http;
     using AppFunc = Func<IDictionary<string, object>, Task>;
 
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var uri = "http://localhost:8080";
-            using (WebApp.Start<Startup>(uri))
-            {
-                Console.WriteLine("Server started");
-                Console.ReadLine();
-                Console.WriteLine("Server stopped!");
-            }
-
-        }
-    }
 
     public class Startup
     {
