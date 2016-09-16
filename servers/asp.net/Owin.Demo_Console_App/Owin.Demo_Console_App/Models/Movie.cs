@@ -5,6 +5,7 @@
         public string Title { get; set; }
         public Genre Genre { get; set; }
         public float Rating { get; set; }
+        public string RottenTomatoesRating { get; set; }
     }
 
     public enum Genre
@@ -13,6 +14,7 @@
         Comedy,
         Action,
         Horror,
-        Crime
+        Crime,
+        Other
     }
 }

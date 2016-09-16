@@ -48,8 +48,8 @@ namespace Owin.Demo_Console_App
             var config = new HttpConfiguration();
             config.Routes.MapHttpRoute(
                 "DefaultApi",
-                "api/{controller}/{id}",
-                new {id = RouteParameter.Optional});
+                "api/{controller}/{action}/{id}",
+                new {controller = "Movie", action = "Get", id = RouteParameter.Optional});
             app.UseWebApi(config);
         }
     }
