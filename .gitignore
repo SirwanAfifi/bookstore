@@ -38,4 +38,5 @@ log.txt
 packages/
 node_modules
 .vscode/
+.vs/
 .vs/config/
