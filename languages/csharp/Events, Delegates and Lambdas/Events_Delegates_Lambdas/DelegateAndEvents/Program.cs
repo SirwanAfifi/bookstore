@@ -2,29 +2,33 @@
 
 namespace DelegateAndEvents
 {
-    public delegate void WorkPerformedHandler(int hour, WorkType workType);
+    public delegate int WorkPerformedHandler(int hour, WorkType workType);
 
     class Program
     {
         static void Main(string[] args)
         {
-            WorkPerformedHandler del = WorkPerformed1;
-            del += WorkPerformed2;
+            WorkPerformedHandler del1 = new WorkPerformedHandler(WorkPerformed1);
+            WorkPerformedHandler del2 = new WorkPerformedHandler(WorkPerformed2);
 
-            DoWork(del);
+            del1 += del2;
 
+            int finalHours = del1(10, WorkType.Gold);
+            Console.WriteLine(finalHours);
 
             Console.Read();
         }
 
-        static void WorkPerformed1(int hour, WorkType workType)
+        static int WorkPerformed1(int hour, WorkType workType)
         {
             Console.WriteLine("WorkPerformed1 called " + hour.ToString());
+            return hour + 1;
         }
 
-        static void WorkPerformed2(int hour, WorkType workType)
+        static int WorkPerformed2(int hour, WorkType workType)
         {
             Console.WriteLine("WorkPerformed2 called " + hour.ToString());
+            return hour + 2;
         }
 
         static void DoWork(WorkPerformedHandler del)
