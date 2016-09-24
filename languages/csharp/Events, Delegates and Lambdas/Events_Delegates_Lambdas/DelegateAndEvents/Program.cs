@@ -2,7 +2,7 @@
 
 namespace DelegateAndEvents
 {
-    public delegate int WorkPerformedHandler(int hour, WorkType workType);
+    
 
     class Program
     {
