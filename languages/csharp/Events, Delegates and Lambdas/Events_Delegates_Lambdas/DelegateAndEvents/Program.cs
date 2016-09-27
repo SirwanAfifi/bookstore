@@ -6,35 +6,21 @@ namespace DelegateAndEvents
     {
         static void Main(string[] args)
         {
-            WorkPerformedHandler del1 = new WorkPerformedHandler(WorkPerformed1);
-            WorkPerformedHandler del2 = new WorkPerformedHandler(WorkPerformed2);
-
-            del1 += del2;
-
-            del1(10, WorkType.Gold);
-
+            var worker = new Worker();
+            worker.WorkPerformed += new EventHandler<WorkPerformedEventArgs>(worker_WorkPerformed);
+            worker.WorkCompleted += new EventHandler(worker_WorkCompleted);
+            worker.DoWork(10, WorkType.Gold);
             Console.Read();
         }
 
-        static void WorkPerformed1(int hour, WorkType workType)
+        private static void worker_WorkCompleted(object sender, EventArgs e)
         {
-            Console.WriteLine("WorkPerformed1 called " + hour.ToString());
+            Console.WriteLine("Worker is done");
         }
 
-        static void WorkPerformed2(int hour, WorkType workType)
+        private static void worker_WorkPerformed(object sender, WorkPerformedEventArgs e)
         {
-            Console.WriteLine("WorkPerformed2 called " + hour.ToString());
+            Console.WriteLine(e.Hours + " " + e.WorkType);
         }
-
-        static void DoWork(WorkPerformedHandler del)
-        {
-            del(15, WorkType.Gold);
-        }
-    }
-
-    public enum WorkType
-    {
-        Gold,
-        Other
     }
 }

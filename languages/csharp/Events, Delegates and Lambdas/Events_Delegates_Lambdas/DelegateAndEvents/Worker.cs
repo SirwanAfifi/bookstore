@@ -2,11 +2,10 @@
 
 namespace DelegateAndEvents
 {
-    public delegate void WorkPerformedHandler(int hour, WorkType workType);
 
     public class Worker
     {
-        public event WorkPerformedHandler WorkPerformed;
+        public event EventHandler<WorkPerformedEventArgs> WorkPerformed;
         public event EventHandler WorkCompleted;
 
         public void DoWork(int hours, WorkType workType)
@@ -21,10 +20,10 @@ namespace DelegateAndEvents
 
         protected virtual void OnWorkPerformed(int hours, WorkType workType)
         {
-            var del = WorkPerformed as WorkPerformedHandler;
+            var del = WorkPerformed as EventHandler<WorkPerformedEventArgs>;
             if (del != null)
             {
-                del(hours, workType);
+                del(this, new WorkPerformedEventArgs(hours, workType));
             }
         }
 
