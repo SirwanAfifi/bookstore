@@ -7,8 +7,8 @@ namespace DelegateAndEvents
         static void Main(string[] args)
         {
             var worker = new Worker();
-            worker.WorkPerformed += new EventHandler<WorkPerformedEventArgs>(worker_WorkPerformed);
-            worker.WorkCompleted += new EventHandler(worker_WorkCompleted);
+            worker.WorkPerformed += worker_WorkPerformed;
+            worker.WorkCompleted += worker_WorkCompleted;
             worker.DoWork(10, WorkType.Gold);
             Console.Read();
         }
