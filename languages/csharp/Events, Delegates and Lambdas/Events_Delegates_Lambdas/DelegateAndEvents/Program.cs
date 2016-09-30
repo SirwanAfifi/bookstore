@@ -8,11 +8,15 @@ namespace DelegateAndEvents
     {
         static void Main(string[] args)
         {
+            var data = new ProcessData();
             BizRuleDelegate addDel = (x, y) => x + y;
             BizRuleDelegate multiplyDel = (x, y) => x * y;
-
-            var data = new ProcessData();
             data.Process(2, 3, (x, y) => x * y);
+
+            Func<int, int, int> funcAddDel = (x, y) => x + y;
+            Func<int, int, int> funcMultiplyDel = (x, y) => x * y;
+            data.ProcessFunc(10, 5, funcAddDel);
+            data.ProcessFunc(10, 5, funcMultiplyDel);
 
             Action<int, int> myAction = (x, y) => Console.WriteLine(x + y);
             Action<int, int> myMultiplyAction = (x, y) => Console.WriteLine(x * y);
