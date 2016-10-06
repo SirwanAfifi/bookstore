@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="JobChangedEventArgs.cs" />
+    <Compile Include="Mediator.cs" />
     <Compile Include="UserControls\EmployeesOnJob.xaml.cs">
       <DependentUpon>EmployeesOnJob.xaml</DependentUpon>
     </Compile>
