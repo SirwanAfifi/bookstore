@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LambdasAndDelegates", "Lamb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommunicatingBetweenControls", "CommunicatingBetweenControls\CommunicatingBetweenControls.csproj", "{D1D02778-3ABD-4F75-A153-DBDA1A311886}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingEvents", "TestingEvents\TestingEvents.csproj", "{44FF4112-7CBD-405B-BCE0-E1310F9E577A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D1D02778-3ABD-4F75-A153-DBDA1A311886}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1D02778-3ABD-4F75-A153-DBDA1A311886}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1D02778-3ABD-4F75-A153-DBDA1A311886}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44FF4112-7CBD-405B-BCE0-E1310F9E577A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44FF4112-7CBD-405B-BCE0-E1310F9E577A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44FF4112-7CBD-405B-BCE0-E1310F9E577A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44FF4112-7CBD-405B-BCE0-E1310F9E577A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
